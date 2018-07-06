@@ -1,0 +1,22 @@
+<br> <br> <br>
+
+<table>
+  <tr>
+    <th>URL</th>
+    <th>Name</th>
+    <th>Delete</th>
+    <th>Subscriber Name</th>
+  </tr>
+  <% @websites.all.each do |website| %>
+  	<tr>
+  		<td> <a href = "http://<%= website.url %>" target = "_blank"> <%= website.url %> </a> </td>
+  		<td> <%= website.url[4..-5].capitalize %> </td>
+  		<td>
+  			<%= form_tag "/websites/#{website.id}", method: :delete do %>
+					<%= submit_tag 'Delete' %>
+				<% end %>
+			</td>
+			<td> <%= website.subscriber.name %> </td>
+  	</tr>
+  <% end %>
+</table>

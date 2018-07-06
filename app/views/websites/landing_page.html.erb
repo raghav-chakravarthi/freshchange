@@ -1,0 +1,19 @@
+<h1 class = "center"> Freshchange </h1>
+
+<%= form_tag websites_path, method: :post do %>
+	<%= text_field_tag 'url', params[:url], placeholder: "Enter the url here" %>
+	<%= text_field_tag 'subscriber_email', params[:subscriber_email], placeholder: "Enter subscriber email" %>
+	<%= submit_tag 'Submit' %>
+<% end %>
+
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+  <% yield %>
+  <% debug(params) if Rails.env.development? %>
+</div>
+
+<%= form_tag '/websites', method: :get do %>
+	<%= submit_tag 'All URLS' %>
+<% end %>
