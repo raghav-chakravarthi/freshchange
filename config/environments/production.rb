@@ -83,6 +83,12 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true 
+  config.action_mailer.raise_delivery_errors = false 
+  config.action_mailer.default :charset => "utf-8"
+
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
@@ -91,4 +97,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.asset_host = "public/assets/screenshots/"
+  config.serve_static_assets = true
+  
 end

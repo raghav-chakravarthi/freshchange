@@ -40,6 +40,9 @@ gem 'nokogiri', '~> 1.8', '>= 1.8.4'
 gem 'differ', '~> 0.1.2'
 gem 'whenever', '~> 0.10.0'
 gem 'bootstrap', '~> 4.1', '>= 4.1.1'
+gem 'gastly', '~> 1.0', '>= 1.0.1'
+gem 'imatcher', '~> 0.1.9'
+gem 'chunky_png', '~> 1.3', '>= 1.3.10'
 
 
 group :development, :test do
