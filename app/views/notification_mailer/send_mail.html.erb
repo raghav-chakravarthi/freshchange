@@ -5,9 +5,29 @@
   </head>
   <body> 
   	<h1>Hi <%= @subscriber.name %></h1>
-    <p> "Website changed, please look" </p>
+    <p> "The webpage <%= @website.url %> changed, please have a look" </p>
+    <h3> Disclaimer </h3>
+    <% if JSON.parse(@website.analytics).index("a/b-testing") %>
+      <p> The page uses A/B testing and some other analytics tools. This might affect your results </p>
+    <% else %>
+      <p> The web-page seems to be using some analytics. This might affect your results </p>
+    <% end %>
+    <p> The tools are - </p>
+    <% JSON.parse(@website.analytics).each do |tool| %>
+      <p> <%= tool %> </p>
+    <% end %>
     <br> <br> <br>
     <h2> Please PFA the initial, current and diff images </h2>
-    <p> The difference is <%= @diff %> </p>
+    <!-- <p> The difference is <%= @diff %> </p> -->
+    <table>
+      <tr>
+        <th> Old screenshot </th>
+        <td> <%= @website.old_time.localtime.strftime('%c') %> </td>
+      </tr>
+      <tr>
+        <th> New screenshot </th>
+        <td> <%= @website.new_time.localtime.strftime('%c') %> </td>
+      </tr>
+    </table>
   </body>
 </html>

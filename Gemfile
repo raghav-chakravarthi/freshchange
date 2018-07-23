@@ -39,10 +39,18 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'nokogiri', '~> 1.8', '>= 1.8.4'
 gem 'differ', '~> 0.1.2'
 gem 'whenever', '~> 0.10.0'
-gem 'bootstrap', '~> 4.1', '>= 4.1.1'
+gem 'bootstrap-sass'
 gem 'gastly', '~> 1.0', '>= 1.0.1'
 gem 'imatcher', '~> 0.1.9'
 gem 'chunky_png', '~> 1.3', '>= 1.3.10'
+gem 'devise', '~> 4.4', '>= 4.4.3'
+gem 'jquery-rails' 
+gem 'rmagick'
+gem 'rubocop', '~> 0.58.1'
+gem 'rspec', '~> 3.7'
+gem 'rake-compiler', '~> 1.0', '>= 1.0.4'
+gem 'test-unit', '~> 3.2', '>= 3.2.8'
+
 
 
 group :development, :test do

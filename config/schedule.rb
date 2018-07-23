@@ -8,7 +8,7 @@
 set :environment, "development"
 set :output, {:error => "log/cron_error_log.log", :standard => "log/cron_log.log"}
 
-# every 2.hours do
+# every 2.hours dox
 #   command "/usr/bin/some_great_command"
 #   runner "MyModel.some_method"
 #   rake "some:great:rake:task"
@@ -20,6 +20,10 @@ set :output, {:error => "log/cron_error_log.log", :standard => "log/cron_log.log
 
 # Learn more: http://github.com/javan/whenever
 
-every 111111.minute do
+every 1.hour do
   rake "check_code:check_now"
+end
+
+every 1.day do
+  rake "check_code:check_seven"
 end

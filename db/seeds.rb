@@ -10,13 +10,5 @@
 
 # Creating subscribers
 
-Subscriber.create(name: "Raghav", email: "raghav.chakravarthi@freshworks.com")
-Subscriber.create(name: "Ashwin", email: "ashwin.elangovan@freshworks.com")
-Subscriber.create(name: "Gauri", email: "gauri.singhal@freshworks.com")
-
-# Creating websites
-
-Website.create(url: "www.freshcaller.com", content: "", subscriber: Subscriber.first)
-Website.create(url: "www.freshchat.com", content: "", subscriber: Subscriber.second)
-Website.create(url: "www.freshdesk.com", content: "", subscriber: Subscriber.first)
-Website.create(url: "www.freshservice.com", content: "", subscriber: Subscriber.third)
+Account.create(owner_name: "Raghav Vc", email: "raghav.chakravarthi@freshworks.com", team_name: "Freshcaller")
+User.create(name: "Raghav", email: "raghav.chakravarthi@freshworks.com", admin: true, has_access: true, account_id: 1, created: true, password: "password")

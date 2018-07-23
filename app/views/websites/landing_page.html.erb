@@ -1,10 +1,8 @@
-<h1 class = "center"> Freshchange </h1>
+<%= render 'shared/nav' %>
 
-<%= form_tag websites_path, method: :post do %>
-	<%= text_field_tag 'url', params[:url], placeholder: "Enter the url here" %>
-	<%= text_field_tag 'subscriber_email', params[:subscriber_email], placeholder: "Enter subscriber email" %>
-	<%= submit_tag 'Submit' %>
-<% end %>
+<div class = "container">
+
+<br>
 
 <div class="container">
   <% flash.each do |key, value| %>
@@ -14,6 +12,60 @@
   <% debug(params) if Rails.env.development? %>
 </div>
 
-<%= form_tag '/websites', method: :get do %>
-	<%= submit_tag 'All URLS' %>
+
+<%= form_tag websites_path, method: :post do %>
+  <label> URL: </label>
+	<%= text_field_tag 'url', params[:url], placeholder: "Enter the complete url here (www.example.com)", class: "form-control" %>
+	<%= hidden_field_tag 'subscriber_email', current_user.email %>
+  <br>
+  <label> Name: </label>
+	<%= text_field_tag 'friendly_name', params[:friendly_name], placeholder: "Give a name to this job", class: "form-control" %>
+  <br>
+	<%= submit_tag 'Start tracking', class:"btn btn-success center-block"%>
 <% end %>
+<hr>
+<br>
+<div class="center-button">
+<% if current_user.admin %>
+  <%= form_tag '/websites', method: :get do %>
+  	<%= submit_tag 'All URLS', class: "btn btn-info" %>
+  <% end %>
+
+  <%= form_tag '/users', method: :get do %>
+    <%= submit_tag 'My Agents', class: "btn btn-info" %>
+  <% end %>
+
+<% else %>
+  <%= form_tag '/websites', method: :get do %>
+    <%= submit_tag 'My URLS', class: "btn btn-info" %>
+  <% end %>
+<% end %>
+</div>
+
+
+<br> <br>
+<hr>
+<br>
+<% if current_user.admin %>
+  <h3> Add a new agent to your team </h3>
+  <%= form_tag subscribers_path, method: :post do %>
+    <label> Name: </label>
+  	<%= text_field_tag 'name', params[:url], placeholder: "Enter the name here", class: "form-control" %>
+    <br>
+    <label> Email: </label>
+  	<%= text_field_tag 'email', params[:subscriber_email], placeholder: "Enter subscriber email", class: "form-control" %>
+    <br>
+  	<%= hidden_field_tag 'account_id', current_user.account.id %>
+  	<%= submit_tag 'Add', class:"btn btn-success center-block" %>
+  <% end %>
+<% end %>
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  setTimeout(function(){
+    $('.alert').remove();
+  }, 3000);
+ })
+</script>

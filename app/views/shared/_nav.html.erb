@@ -1,0 +1,15 @@
+<nav class="navbar navbar-default" role="navigation">
+    <a class="navbar-brand navbar-center" href="/">
+        <img src="/new_img.png" height="30px" width="150px" alt="Logo Here">
+    </a>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <% current_user.admin ? privilege = "Admin" : privilege = "Agent" %>
+          <li> <a> Logged in as <%= current_user.name %>. Access: <%= privilege %> </a> </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li> <%= link_to 'Change password', "/users/change_password/#{current_user.id}", method: :put %> </li>
+          <li> <%= link_to 'Log Out', destroy_user_session_path, method: :delete %> </li>
+        </ul>
+    </div>
+</nav>

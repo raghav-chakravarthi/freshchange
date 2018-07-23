@@ -1,0 +1,88 @@
+<%= render 'shared/nav' %>
+
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+  <% yield %>
+  <% debug(params) if Rails.env.development? %>
+</div>
+
+<br>
+
+<table class = "table table-striped table-bordered">
+	<tr>
+		<% if File.file?("public/assets/screenshots/#{@website.id}_report_one.png") %>
+			<th class = "align-center"> <%= @website.report_one.localtime.strftime('%c') %></th>
+		<% end %>
+		<% if File.file?("public/assets/screenshots/#{@website.id}_report_two.png") %>
+			<th class = "align-center"> <%= @website.report_two.localtime.strftime('%c') %></th>
+		<% end %>
+		<% if File.file?("public/assets/screenshots/#{@website.id}_report_three.png") %>
+			<th class = "align-center"> <%= @website.report_three.localtime.strftime('%c') %></th>
+		<% end %>
+	</tr>
+	<tr>
+		<% if File.file?("public/assets/screenshots/#{@website.id}_report_one.png") %>
+			<td> <img src="/assets/screenshots/<%= @website.id %>_report_one.png" alt="First picture" width=100%> </td>
+		<% end %>
+		<% if File.file?("public/assets/screenshots/#{@website.id}_report_two.png") %> 
+			<td> <img src="/assets/screenshots/<%= @website.id %>_report_two.png" alt="Second picture" width="100%"> </td>
+		<% end %>
+		<% if File.file?("public/assets/screenshots/#{@website.id}_report_three.png") %> 
+			<td> <img src="/assets/screenshots/<%= @website.id %>_report_three.png" alt="Taking screenshot, please wait" width="100%"> </td>
+		<% end %>
+	</tr>
+</table>
+<hr>
+
+<div class = "container">
+
+
+	<% if @website.was_updated %>
+		<h3> From the first screenshot to the latest screenshot, the website seems to have changed </h3>
+	<% else %>
+		<h3> No change in the website from the first screenshot to the latest screenshot </h3>
+	<% end %>
+
+	<br> <br>
+	<table class = "table table-striped table-bordered">
+		<tr>
+			<th class = "align-center"> First screenshot taken as on <%= @website.created_at.localtime.strftime('%c') %> </th>
+			<% if @website.new_time %>
+				<th class = "align-center"> Latest screenshot of the changed web page taken as on <%= @website.new_time.localtime.strftime('%c') %> </th>
+			<% else %>
+				<th class = "align-center"> Latest screenshot of the changed web page </th> 
+			<% end %>
+		</tr>
+		<tr>
+			<% if File.file?("public/assets/screenshots/#{@website.id}_initial.png") %>
+				<td> <img src="/assets/screenshots/<%= @website.id %>_initial.png" alt="Initial picture" width=100%> </td>
+			<% end %>
+			<% if File.file?("public/assets/screenshots/#{@website.id}_diff.png") %>
+				<td> <img src="/assets/screenshots/<%= @website.id %>_diff.png" alt="Latest picture" width=100%> </td>
+			<% elsif File.file?("public/assets/screenshots/#{@website.id}_change.png") %>
+				<td> <img src="/assets/screenshots/<%= @website.id %>_change.png" alt="Latest picture" width=100%> </td>
+			<% else %>
+				<td> The web page has not been tracked yet. Please wait </td>
+			<% end %>
+		</tr>
+	</table>
+	<br>
+
+	<h3> Internal analytics used by the website </h3>
+	<br>
+	<table class = "table table-striped table-bordered">
+		<tr>
+			<th class = "align-center"> # </th>
+			<th class = "align-center"> Analytic tool </th>
+		</tr>
+		<% count = 0 %>
+		<% JSON.parse(@website.analytics).each do |tool| %>
+			<tr>
+				<td class = "align-center"> <%= count += 1 %> </td>
+				<td class = "align-center"> <%= tool %> </td>
+			</tr>
+		<% end %>
+	</table>
+</div>

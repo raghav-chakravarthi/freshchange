@@ -1,0 +1,54 @@
+<%= render 'shared/nav' %>
+
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+  <% yield %>
+  <% debug(params) if Rails.env.development? %>
+</div>
+
+<div class = "container">
+  <h3> Team <%= current_user.account.team_name %> </h3>
+  <% if current_user.admin %>
+    <br> <br>
+    <table class = "table table-striped table-bordered">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>#Websites</th>
+        <th>Last sign in</th>
+        <th>Delete user </th>
+      </tr>
+      <% @users.each do |user| %>
+      	<tr>
+          <td> <%= user.name %> </td>
+          <td> <%= user.email %> </td>
+          <td> <%= user.websites.count %> </td>
+          <% if user.last_sign_in_at %>
+            <td> <%= user.last_sign_in_at.localtime.strftime('%c') %> </td>
+          <% else %>
+            <td> N/A </td>
+          <% end %>
+          <td>
+            <% if !user.admin %>
+              <%= form_tag "/users/#{user.id}", method: :delete do %>
+                <%= submit_tag 'Delete', class: "btn btn-danger center-block" %>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <h1> Sorry, the page does not exist </h1>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  setTimeout(function(){
+    $('.alert').remove();
+  }, 3000);
+ })
+</script>
