@@ -6,7 +6,7 @@ class SubscribersController < ApplicationController
 				flash[:success] = "The agent has been added to your account. Please inform the agent to change the password and start monitoring websites."
 				redirect_to root_path
 			else
-				flash[:falure] = "Error while creating the agent for your account. Please try again later"
+				flash[:failure] = "Error while creating the agent for your account. Please try again later"
 				redirect_to root_path
 			end
 		rescue
