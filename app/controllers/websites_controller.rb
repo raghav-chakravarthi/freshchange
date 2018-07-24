@@ -4,7 +4,15 @@ require 'open-uri'
 class WebsitesController < ApplicationController
 	before_action :authenticate_user!
 	def landing_page
-
+		@websites = []
+		if current_user.admin
+			Website.all.each do |website| @websites.push(website) end
+		else
+			@websites = []
+			Website.all.each do |website|
+				@websites.push(website) if website.user == current_user
+			end
+		end
 	end
 
 	def create
@@ -112,5 +120,10 @@ class WebsitesController < ApplicationController
 
 	def show
 		@website = Website.find(params[:id])
+		if @website.was_updated
+			flash[:success] = "The website - #{@website.url} seems to have changed atleast once"
+		else
+			flash[:success] = "No change in website - #{@website.url}"
+		end
 	end
 end

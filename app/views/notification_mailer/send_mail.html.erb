@@ -4,20 +4,8 @@
   	<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body> 
-  	<h1>Hi <%= @subscriber.name %></h1>
-    <p> "The webpage <%= @website.url %> changed, please have a look" </p>
-    <h3> Disclaimer </h3>
-    <% if JSON.parse(@website.analytics).index("a/b-testing") %>
-      <p> The page uses A/B testing and some other analytics tools. This might affect your results </p>
-    <% else %>
-      <p> The web-page seems to be using some analytics. This might affect your results </p>
-    <% end %>
-    <p> The tools are - </p>
-    <% JSON.parse(@website.analytics).each do |tool| %>
-      <p> <%= tool %> </p>
-    <% end %>
-    <br> <br> <br>
-    <h2> Please PFA the initial, current and diff images </h2>
+  	<h4>Hi <%= @subscriber.name %></h4>
+    <p> The web page <%= @website.url %> seems to have changed. We have attached two screenshots, an initial one and another screenshot containing the change. Please reach out to us if you have any queries </p>
     <!-- <p> The difference is <%= @diff %> </p> -->
     <table>
       <tr>

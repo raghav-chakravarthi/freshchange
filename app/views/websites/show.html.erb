@@ -50,7 +50,7 @@
 		<tr>
 			<th class = "align-center"> First screenshot taken as on <%= @website.created_at.localtime.strftime('%c') %> </th>
 			<% if @website.new_time %>
-				<th class = "align-center"> Latest screenshot of the changed web page taken as on <%= @website.new_time.localtime.strftime('%c') %> </th>
+				<th class = "align-center"> Latest screenshot of the taken as on <%= @website.new_time.localtime.strftime('%c') %> </th>
 			<% else %>
 				<th class = "align-center"> Latest screenshot of the changed web page </th> 
 			<% end %>
@@ -86,3 +86,11 @@
 		<% end %>
 	</table>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  setTimeout(function(){
+    $('.alert').remove();
+  }, 3000);
+ })
+</script>

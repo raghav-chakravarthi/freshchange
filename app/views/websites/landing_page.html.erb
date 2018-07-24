@@ -2,64 +2,94 @@
 
 <div class = "container">
 
-<br>
-
-<div class="container">
-  <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>"><%= value %></div>
-  <% end %>
-  <% yield %>
-  <% debug(params) if Rails.env.development? %>
-</div>
-
-
-<%= form_tag websites_path, method: :post do %>
-  <label> URL: </label>
-	<%= text_field_tag 'url', params[:url], placeholder: "Enter the complete url here (www.example.com)", class: "form-control" %>
-	<%= hidden_field_tag 'subscriber_email', current_user.email %>
   <br>
-  <label> Name: </label>
-	<%= text_field_tag 'friendly_name', params[:friendly_name], placeholder: "Give a name to this job", class: "form-control" %>
-  <br>
-	<%= submit_tag 'Start tracking', class:"btn btn-success center-block"%>
-<% end %>
-<hr>
-<br>
-<div class="center-button">
-<% if current_user.admin %>
-  <%= form_tag '/websites', method: :get do %>
-  	<%= submit_tag 'All URLS', class: "btn btn-info" %>
-  <% end %>
 
-  <%= form_tag '/users', method: :get do %>
-    <%= submit_tag 'My Agents', class: "btn btn-info" %>
-  <% end %>
-
-<% else %>
-  <%= form_tag '/websites', method: :get do %>
-    <%= submit_tag 'My URLS', class: "btn btn-info" %>
-  <% end %>
-<% end %>
-</div>
+  <div class="container">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+    <% yield %>
+    <% debug(params) if Rails.env.development? %>
+  </div>
 
 
-<br> <br>
-<hr>
-<br>
-<% if current_user.admin %>
-  <h3> Add a new agent to your team </h3>
-  <%= form_tag subscribers_path, method: :post do %>
+  <%= form_tag websites_path, method: :post do %>
+    <label> URL: </label>
+  	<%= text_field_tag 'url', params[:url], placeholder: "Enter the complete url here (www.example.com)", class: "form-control" %>
+  	<%= hidden_field_tag 'subscriber_email', current_user.email %>
+    <br>
     <label> Name: </label>
-  	<%= text_field_tag 'name', params[:url], placeholder: "Enter the name here", class: "form-control" %>
+  	<%= text_field_tag 'friendly_name', params[:friendly_name], placeholder: "Give a name to this job", class: "form-control" %>
     <br>
-    <label> Email: </label>
-  	<%= text_field_tag 'email', params[:subscriber_email], placeholder: "Enter subscriber email", class: "form-control" %>
-    <br>
-  	<%= hidden_field_tag 'account_id', current_user.account.id %>
-  	<%= submit_tag 'Add', class:"btn btn-success center-block" %>
+  	<%= submit_tag 'Start tracking', class:"btn btn-success center-block"%>
   <% end %>
-<% end %>
+  <hr>
+  <br>
+
+  <h3> Team <%= current_user.account.team_name %> </h3>
+  <br>
+  <table class = "table table-striped table-bordered">
+    <tr>
+      <th>ID</th>
+      <th>URL</th>
+      <th>Name</th>
+      <th>Delete</th>
+      <th>Tracking</th>
+      <!-- <th>Update</th> -->
+      <th>Subscriber Name</th>
+      <th>Last checked</th>
+      <th>Quick report</th>
+    </tr>
+    <% @websites.each do |website| %>
+      <tr>
+        <td> <%= website.id %> </td>
+        <% if website.url[0..3] == 'http' %>
+          <td> <a href = "<%= website.url %>" target = "_blank"> <%= truncate(website.url) %> </a> </td>
+        <% else %>
+          <td>  <a href = "http://<%= website.url %>" target = "_blank"> <%= truncate(website.url) %> </a> </td>
+        <% end %>
+        <td> <%= website.friendly_name %> </td>
+        <td>
+          <%= form_tag "/websites/#{website.id}", method: :delete do %>
+            <%= submit_tag 'Delete', class: "btn btn-danger center-block" %>
+          <% end %>
+        </td>
+        <% if !website.priority %>
+          <td>
+            <%= form_tag "/websites/#{website.id}", method: :put do %>
+              <%= submit_tag 'Resume', class: "btn btn-success center-block" %>
+            <% end %>
+          </td>
+        <% else %>
+          <td>
+            <%= form_tag "/websites/#{website.id}", method: :put do %>
+              <%= submit_tag 'Pause', class: "btn btn-info center-block" %>
+            <% end %>
+          </td>
+        <% end %>
+        <!-- <td>
+          <%= form_tag "websites/#{website.id}", method: :put do %>
+            <%= text_field_tag 'url', params[:url], placeholder: "Enter the url here", class: "form-control" %>
+            <%= submit_tag 'Update', class: "btn btn-primary center-block" %>
+          <% end %>
+        </td> -->
+        <td> <%= website.user.name %> </td>
+        <% diff_in_sec = Time.now - website.old_time %>
+        <% if (diff_in_sec / 60) > 60 %>
+          <td> About <%= ((diff_in_sec / 60) / 60).to_i %> hours ago </td>
+        <% else %> 
+          <td> <%= (diff_in_sec / 60).to_i %> minutes ago </td>
+        <%end%>
+        <td>
+          <%= form_tag "websites/#{website.id}", method: :get do %>
+            <%= submit_tag '2 weeks report', class: "btn btn-primary center-block" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 </div>
+
 
 
 <script type="text/javascript">

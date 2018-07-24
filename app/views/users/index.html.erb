@@ -40,6 +40,21 @@
         </tr>
       <% end %>
     </table>
+
+    <br> <br>
+    <hr>
+    <br> <br>
+    <h3> Add a new agent to your team </h3>
+    <%= form_tag subscribers_path, method: :post do %>
+      <label> Name: </label>
+      <%= text_field_tag 'name', params[:url], placeholder: "Enter the name here", class: "form-control" %>
+      <br>
+      <label> Email: </label>
+      <%= text_field_tag 'email', params[:subscriber_email], placeholder: "Enter subscriber email", class: "form-control" %>
+      <br>
+      <%= hidden_field_tag 'account_id', current_user.account.id %>
+      <%= submit_tag 'Add', class:"btn btn-success center-block" %>
+    <% end %>
   <% else %>
     <h1> Sorry, the page does not exist </h1>
   <% end %>

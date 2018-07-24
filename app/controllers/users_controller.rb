@@ -3,10 +3,10 @@ class UsersController < ApplicationController
 		user = User.new(name: params[:name], email: params[:email], account_id: params[:account_id], admin: false, has_access: true, password: "password", account_id: params[:account_id])
 		if user.save!
 			flash[:success] = "The agent has been added to your account."
-			redirect_to root_path
+			redirect_to users_path
 		else
 			flash[:falure] = "Error while creating the agent for your account. Please try again later"
-			redirect_to root_path
+			redirect_to users_path
 		end
 	end
 
