@@ -20,7 +20,7 @@ set :output, {:error => "log/cron_error_log.log", :standard => "log/cron_log.log
 
 # Learn more: http://github.com/javan/whenever
 
-every 1.minute do
+every 1.hour do
   rake "check_code:check_now"
 end
 

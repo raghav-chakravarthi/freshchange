@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 			flash[:success] = "The agent has been added to your account."
 			redirect_to users_path
 		else
-			flash[:falure] = "Error while creating the agent for your account. Please try again later"
+			flash[:failure] = "Error while creating the agent for your account. Please try again later"
 			redirect_to users_path
 		end
 	end

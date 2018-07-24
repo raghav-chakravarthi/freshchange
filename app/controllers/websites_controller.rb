@@ -53,36 +53,7 @@ class WebsitesController < ApplicationController
 		end
 	end
 
-	def index
-		@websites = []
-		if current_user.admin
-			Website.all.each do |website| @websites.push(website) end
-		else
-			@websites = []
-			Website.all.each do |website|
-				@websites.push(website) if website.user == current_user
-			end
-		end
-	end
-
 	def update
-		# begin
-		# 	website = Website.find(params[:id].to_i)
-		# 	if params[:url].present?
-		# 		website.url = params[:url]
-		# 		url = (website.url[0..3] != 'http') ? "http://" + website.url : website.url
-		# 		Gastly.capture(url, "public/assets/screenshots/#{website.id}.png")
-		# 		if website.save!
-		# 			flash[:success] = "Update successful"
-		# 		else
-		# 			flash[:success] = "Error while updating"
-		# 		end
-		# 	end
-		# 	redirect_to websites_path
-		# rescue
-		# 	flash[:error] = "Error! Enter a valid url in the format www.example.com"
-		# 	redirect_to websites_path
-		# end
 		begin
 		 	website = Website.find(params[:id].to_i)
 		 	if website.priority
@@ -92,10 +63,10 @@ class WebsitesController < ApplicationController
 		 		website.update_attributes!(priority: true)
 		 		flash[:success] = "Website tracking resumed"
 		 	end
-		 	redirect_to websites_path
+		 	redirect_to root_path
 		rescue
 		 	flash[:error] = "Error in action. Please try again after sometime"
-		 	redirect_to websites_path
+		 	redirect_to root_path
 		end
 	end
 
@@ -111,10 +82,10 @@ class WebsitesController < ApplicationController
 			File.delete("public/assets/screenshots/#{website.id}_report_two.png") if File.file?("public/assets/screenshots/#{website.id}_report_two.png")
 			File.delete("public/assets/screenshots/#{website.id}_report_three.png") if File.file?("public/assets/screenshots/#{website.id}_report_three.png")
 
-			redirect_to websites_path
+			redirect_to root_path
 		else
 			flash[:error] = "Error while deleting the URL"
-			redirect_to websites_path
+			redirect_to root_path
 		end
 	end
 

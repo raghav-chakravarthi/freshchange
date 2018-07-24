@@ -17,9 +17,13 @@
 		<% end %>
 		<% if File.file?("public/assets/screenshots/#{@website.id}_report_two.png") %>
 			<th class = "align-center"> <%= @website.report_two.localtime.strftime('%c') %></th>
+		<% else %>
+			<th class = "align-center"> Week 1 screenshot not taken yet. Please wait </th>
 		<% end %>
 		<% if File.file?("public/assets/screenshots/#{@website.id}_report_three.png") %>
 			<th class = "align-center"> <%= @website.report_three.localtime.strftime('%c') %></th>
+		<% else %>
+			<th class = "align-center"> Week 2 screenshot not taken yet. Please wait </th>
 		<% end %>
 	</tr>
 	<tr>
