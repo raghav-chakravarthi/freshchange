@@ -50,6 +50,7 @@ gem 'rubocop', '~> 0.58.1'
 gem 'rspec', '~> 3.7'
 gem 'rake-compiler', '~> 1.0', '>= 1.0.4'
 gem 'test-unit', '~> 3.2', '>= 3.2.8'
+gem 'momentjs-rails', '~> 2.17', '>= 2.17.1'
 
 
 
