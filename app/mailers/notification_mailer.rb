@@ -1,8 +1,8 @@
 class NotificationMailer < ApplicationMailer
 	default from: 'freshchange@freshworks.com'
 
-	def send_mail(email, url)
-		@website = Website.find_by_url(url)
+	def send_mail(email, url, id)
+		@website = Website.find(id)
 		# path = File.join Rails.root, 'public', 'assets', 'screenshots'
 		# attachments.inline['old.png'] = File.read(File.join(path, "#{website.id}.png"))
 		attachments.inline['old.png'] = File.read("public/assets/screenshots/#{@website.id}.png")

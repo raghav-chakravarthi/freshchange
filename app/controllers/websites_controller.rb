@@ -41,6 +41,9 @@ class WebsitesController < ApplicationController
 	          	image.save("public/assets/screenshots/#{website.id}.png")
 	          	image.save("public/assets/screenshots/#{website.id}_initial.png")
 	          	image.save("public/assets/screenshots/#{website.id}_report_one.png")
+	          	ImageOptimizer.new("public/assets/screenshots/#{website.id}.png", level: 3).optimize
+	          	ImageOptimizer.new("public/assets/screenshots/#{website.id}_initial.png", level: 3).optimize
+	          	ImageOptimizer.new("public/assets/screenshots/#{website.id}_report_one.png", level: 3).optimize
 				flash[:success] = "The URL has been added successfully"
 				redirect_to root_path
 			else
