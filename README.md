@@ -64,30 +64,30 @@ in the terminal. Once the server is running, go the browser and hit the url "loc
 
 
 ### Log in
-![Log in](https://github.com/raghav-chakravarthi/freshcgange/blob/master/public/assets/1.png "Log in")
+![Log in](https://github.com/raghav-chakravarthi/freshchange/blob/master/public/assets/1.png "Log in")
 
 
 
 ### Dashboard
-![Log in](https://github.com/raghav-chakravarthi/freshcgange/blob/master/public/assets/2.png "Dashboard")
+![Log in](https://github.com/raghav-chakravarthi/freshchange/blob/master/public/assets/2.png "Dashboard")
 
 
 
 ### User details
-![User](https://github.com/raghav-chakravarthi/freshcgange/blob/master/public/assets/3.png "User details")
+![User](https://github.com/raghav-chakravarthi/freshchange/blob/master/public/assets/3.png "User details")
 
 
 
 ### Two week report
-![Report](https://github.com/raghav-chakravarthi/freshcgange/blob/master/public/assets/4.png "Two week report")
+![Report](https://github.com/raghav-chakravarthi/freshchange/blob/master/public/assets/4.png "Two week report")
 
 
 
 ### First, latest change and internal marketing tools
-![Tools](https://github.com/raghav-chakravarthi/freshcgange/blob/master/public/assets/5.png "Tools")
+![Tools](https://github.com/raghav-chakravarthi/freshchange/blob/master/public/assets/5.png "Tools")
 
 
 
 ### Triggered mail
-![Mail](https://github.com/raghav-chakravarthi/freshcgange/blob/master/public/assets/6.png "Mail")
+![Mail](https://github.com/raghav-chakravarthi/freshchange/blob/master/public/assets/6.png "Mail")
 
