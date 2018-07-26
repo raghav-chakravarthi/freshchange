@@ -5,7 +5,7 @@
     <% if current_user %>
       <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-left">
-            <% current_user.admin ? privilege = "Admin" : privilege = "Agent" %>
+            <% current_user.admin ? privilege = "Admin" : privilege = "User" %>
             <li> <a> Logged in as <%= current_user.name %>. Access: <%= privilege %> </a> </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">

@@ -2,10 +2,10 @@ class UsersController < ApplicationController
 	def create
 		user = User.new(name: params[:name], email: params[:email], account_id: params[:account_id], admin: false, has_access: true, password: "password", account_id: params[:account_id])
 		if user.save!
-			flash[:success] = "The agent has been added to your account."
+			flash[:success] = "The user has been added to your account."
 			redirect_to users_path
 		else
-			flash[:failure] = "Error while creating the agent for your account. Please try again later"
+			flash[:failure] = "Error while creating the user for your account. Please try again later"
 			redirect_to users_path
 		end
 	end

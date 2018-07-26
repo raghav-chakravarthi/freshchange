@@ -24,6 +24,6 @@ every 1.minute do
   rake "check_code:check_now"
 end
 
-every 1.day do
+every 1.minute do
   rake "check_code:check_seven"
 end
