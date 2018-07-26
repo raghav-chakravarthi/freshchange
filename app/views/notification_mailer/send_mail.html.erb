@@ -17,5 +17,9 @@
         <td> <%= @website.new_time.localtime.strftime('%c') %> </td>
       </tr>
     </table>
+    <% if JSON.parse(@website.analytics).include?("a/b-testing") %>
+      <p> The website uses a-b testing and this might affect your results </p>
+    <% end %>
+    <p> You can pause / delete tracking this website anytime by going to the dashboard </p>
   </body>
 </html>

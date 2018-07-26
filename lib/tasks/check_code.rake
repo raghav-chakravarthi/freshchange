@@ -1,3 +1,5 @@
+require 'capture_screenshot'
+
 namespace :check_code do
   desc "TODO"
   task check_now: :environment do
@@ -15,10 +17,11 @@ namespace :check_code do
           Rails.logger.info "\n\n\n#{url} has no content!"
         end
         if website.content.present?
-          screenshot = Gastly.screenshot(url, timeout: 3000)
-          image = screenshot.capture
-          image.save("public/assets/screenshots/#{website.id}_change.png")
-          ImageOptimizer.new("public/assets/screenshots/#{website.id}_change.png", level: 3).optimize
+          # screenshot = Gastly.screenshot(url, timeout: 3000)
+          # image = screenshot.capture
+          # image.save("public/assets/screenshots/#{website.id}_change.png")
+          CaptureScreenshot.capture(url, "#{website.id}_change")
+          # ImageOptimizer.new("public/assets/screenshots/#{website.id}_change.png", level: 1).optimize
           website.update_attributes!(new_time: Time.now)
           cmp = Imatcher::Matcher.new
           begin
@@ -42,10 +45,11 @@ namespace :check_code do
             end
           rescue
             Rails.logger.info "********************************* Inside Rescue ***************************************"
-            screenshot = Gastly.screenshot(url, timeout: 3000)
-            image = screenshot.capture
-            image.save("public/assets/screenshots/#{website.id}.png")
-            ImageOptimizer.new("public/assets/screenshots/#{website.id}.png", level: 3).optimize
+            # screenshot = Gastly.screenshot(url, timeout: 3000)
+            # image = screenshot.capture
+            # image.save("public/assets/screenshots/#{website.id}.png")
+            CaptureScreenshot.capture(url, "#{website.id}")
+            # ImageOptimizer.new("public/assets/screenshots/#{website.id}.png", level: 1).optimize
             website.update_attributes!(old_time: Time.now)
           end
           diff = Differ.diff_by_word(website.content, doc.to_html)
@@ -55,10 +59,11 @@ namespace :check_code do
             # NotificationMailer.send_mail(email, website.url, diff).deliver
             NotificationMailer.send_mail(email, website.url, website.id).deliver
           end
-          screenshot = Gastly.screenshot(url, timeout: 3000)
-          image = screenshot.capture
-          image.save("public/assets/screenshots/#{website.id}.png")
-          ImageOptimizer.new("public/assets/screenshots/#{website.id}.png", level: 3).optimize
+          # screenshot = Gastly.screenshot(url, timeout: 3000)
+          # image = screenshot.capture
+          # image.save("public/assets/screenshots/#{website.id}.png")
+          CaptureScreenshot.capture(url, "#{website.id}")
+          # ImageOptimizer.new("public/assets/screenshots/#{website.id}.png", level: 1).optimize
           website.update_attributes!(old_time: Time.now)
           website.content = doc.to_html
           website.save!
@@ -81,19 +86,21 @@ namespace :check_code do
         website.report_two = Time.now
         website.save!
         Rails.logger.info "Taking the 7th day screenshot for the website - #{website}"
-        screenshot = Gastly.screenshot(url, timeout: 3000)
-        image = screenshot.capture
-        image.save("public/assets/screenshots/#{website.id}_report_two.png")
-        ImageOptimizer.new("public/assets/screenshots/#{website.id}_report_two.png", level: 3).optimize
+        # screenshot = Gastly.screenshot(url, timeout: 3000)
+        # image = screenshot.capture
+        # image.save("public/assets/screenshots/#{website.id}_report_two.png")
+          CaptureScreenshot.capture(url, "#{website.id}_report_two")
+        # ImageOptimizer.new("public/assets/screenshots/#{website.id}_report_two.png", level: 1).optimize
         Rails.logger.info "Done with the 7th day screenshot for the website - #{website}"
       elsif File.file?("public/assets/screenshots/#{website.id}_report_two.png") and !File.file?("public/assets/screenshots/#{website.id}_report_three.png")
         Rails.logger.info "Taking the 14th day screenshot for the website - #{website}"
         website.report_three = Time.now
         website.save!
-        screenshot = Gastly.screenshot(url, timeout: 3000)
-        image = screenshot.capture
-        image.save("public/assets/screenshots/#{website.id}_report_three.png")
-        ImageOptimizer.new("public/assets/screenshots/#{website.id}_report_three.png", level: 3).optimize
+        # screenshot = Gastly.screenshot(url, timeout: 3000)
+        # image = screenshot.capture
+        # image.save("public/assets/screenshots/#{website.id}_report_three.png")
+        CaptureScreenshot.capture(url, "#{website.id}_report_three")
+        # ImageOptimizer.new("public/assets/screenshots/#{website.id}_report_three.png", level: 1).optimize
         Rails.logger.info "Done with the 14th day screenshot for the website - #{website}"
       elsif File.file?("public/assets/screenshots/#{website.id}_report_two.png") and File.file?("public/assets/screenshots/#{website.id}_report_three.png")
         Rails.logger.info "Taking the 14th day screenshot for the website - #{website} and replacing the first day screenshot"
@@ -104,10 +111,11 @@ namespace :check_code do
         website.report_two = website.report_three
         website.report_three = Time.now
         website.save!
-        screenshot = Gastly.screenshot(url, timeout: 3000)
-        image = screenshot.capture
-        image.save("public/assets/screenshots/#{website.id}_report_three.png")
-        ImageOptimizer.new("public/assets/screenshots/#{website.id}_report_three.png", level: 3).optimize
+        # screenshot = Gastly.screenshot(url, timeout: 3000)
+        # image = screenshot.capture
+        # image.save("public/assets/screenshots/#{website.id}_report_three.png")
+        CaptureScreenshot.capture(url, "#{website.id}_report_three")
+        # ImageOptimizer.new("public/assets/screenshots/#{website.id}_report_three.png", level: 1).optimize
         Rails.logger.info "Done with replacing and taking the new screenshots"
       end
     end
