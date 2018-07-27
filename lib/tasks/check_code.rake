@@ -7,7 +7,7 @@ namespace :check_code do
     Rails.logger.info "Rake task started at #{time}"
     Website.all.each do |website|
       if website.priority
-        url = (website.url[0..3] != 'http') ? "http://" + website.url : website.url
+        url = (website.url[0..3] != 'https') ? "https://" + website.url : website.url
         Rails.logger.info "Checking the HTML code for the URL -- #{url}"
         doc = Nokogiri::HTML(open(url).read)
         Rails.logger.info "*****************************************"

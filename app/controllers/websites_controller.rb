@@ -19,7 +19,7 @@ class WebsitesController < ApplicationController
 		begin
 			user = User.find_by_email(params[:subscriber_email])
 			website = Website.new(url: params[:url], user_id: user.id, friendly_name: params[:friendly_name])
-			url = (website.url[0..3] != 'http') ? 'http://' + website.url : website.url
+			url = (website.url[0..3] != 'https') ? 'https://' + website.url : website.url
 			website.content = "yes" if Nokogiri::HTML(open(url).read).to_html
 			website.old_time = Time.now
 			curl_response = `curl -X GET   "https://api.builtwith.com/free1/api.json?KEY=c0e34101-94db-4c57-8700-492d5014e079&LOOKUP=#{website.url}"`
