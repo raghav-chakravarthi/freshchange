@@ -19,14 +19,14 @@ class WebsitesController < ApplicationController
 		begin
 			user = User.find_by_email(params[:subscriber_email])
 			website = Website.new(url: params[:url], user_id: user.id, friendly_name: params[:friendly_name])
-			url = (website.url[0..3] != 'http') ? "http://" + website.url : website.url
+			url = (website.url[0..3] != 'http') ? 'http://' + website.url : website.url
 			website.content = Nokogiri::HTML(open(url).read).to_html
 			website.old_time = Time.now
 			curl_response = `curl -X GET   "https://api.builtwith.com/free1/api.json?KEY=c0e34101-94db-4c57-8700-492d5014e079&LOOKUP=#{website.url}"`
 	    	json_reponse = JSON.parse(curl_response)
 	    	analytics = ""
 	    	json_reponse['groups'].each do |e|
-	  			analytics = e if e["name"] == "analytics"
+	  			analytics = e if e["name"] == 'analytics'
 			end
 			all_analytics_used = []
 			analytics['categories'].each do |category|
@@ -44,10 +44,10 @@ class WebsitesController < ApplicationController
 	          	# ImageOptimizer.new("public/assets/screenshots/#{website.id}.png", level: 1).optimize
 	          	# ImageOptimizer.new("public/assets/screenshots/#{website.id}_initial.png", level: 1).optimize
 	          	# ImageOptimizer.new("public/assets/screenshots/#{website.id}_report_one.png", level: 1).optimize
-				flash[:success] = "The URL has been added successfully"
+				flash[:success] = 'The URL has been added successfully'
 				redirect_to root_path
 			else
-				flash[:error] = "Error while adding the URL"
+				flash[:error] = 'Error while adding the URL'
 				redirect_to root_path
 			end
 		rescue

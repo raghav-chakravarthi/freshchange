@@ -35,23 +35,22 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-
-gem 'nokogiri', '~> 1.8', '>= 1.8.4'
-gem 'differ', '~> 0.1.2'
-gem 'whenever', '~> 0.10.0'
 gem 'bootstrap-sass'
-gem 'gastly', '~> 1.0', '>= 1.0.1'
-gem 'imatcher', '~> 0.1.9'
 gem 'chunky_png', '~> 1.3', '>= 1.3.10'
 gem 'devise', '~> 4.4', '>= 4.4.3'
-gem 'jquery-rails' 
-gem 'rmagick'
-gem 'rubocop', '~> 0.58.1'
-gem 'rspec', '~> 3.7'
-gem 'rake-compiler', '~> 1.0', '>= 1.0.4'
-gem 'test-unit', '~> 3.2', '>= 3.2.8'
-gem 'momentjs-rails', '~> 2.17', '>= 2.17.1'
+gem 'differ', '~> 0.1.2'
+gem 'gastly', '~> 1.0', '>= 1.0.1'
 gem 'image_optimizer'
+gem 'imatcher', '~> 0.1.9'
+gem 'jquery-rails'
+gem 'momentjs-rails', '~> 2.17', '>= 2.17.1'
+gem 'nokogiri', '~> 1.8', '>= 1.8.4'
+gem 'rake-compiler', '~> 1.0', '>= 1.0.4'
+gem 'rmagick'
+gem 'rspec', '~> 3.7'
+gem 'rubocop', '~> 0.58.1'
+gem 'test-unit', '~> 3.2', '>= 3.2.8'
+gem 'whenever', '~> 0.10.0'
 
 
 
