@@ -45,13 +45,14 @@ gem 'jquery-rails'
 gem 'momentjs-rails', '~> 2.17', '>= 2.17.1'
 gem 'nokogiri', '~> 1.8', '>= 1.8.4'
 gem 'rake-compiler', '~> 1.0', '>= 1.0.4'
-# gem 'rmagick', '~> 2.13.2'
+gem 'rmagick', '~> 2.13.2'
 gem 'rspec', '~> 3.7'
 gem 'rubocop', '~> 0.58.1'
 gem 'test-unit', '~> 3.2', '>= 3.2.8'
 gem 'whenever', '~> 0.10.0'
 gem 'yaml_db', '~> 0.7.0'
 gem 'mysql2'
+gem 'dotenv-rails'
 
 
 
