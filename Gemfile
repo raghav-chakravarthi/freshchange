@@ -51,6 +51,8 @@ gem 'rspec', '~> 3.7'
 gem 'rubocop', '~> 0.58.1'
 gem 'test-unit', '~> 3.2', '>= 3.2.8'
 gem 'whenever', '~> 0.10.0'
+gem 'yaml_db', '~> 0.7.0'
+gem 'mysql2'
 
 
 

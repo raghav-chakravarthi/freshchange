@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2018_07_20_085819) do
 
-  create_table "accounts", force: :cascade do |t|
+  create_table "accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "owner_name"
     t.string "email"
     t.string "team_name"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2018_07_20_085819) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "subscribers", force: :cascade do |t|
+  create_table "subscribers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", null: false
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2018_07_20_085819) do
     t.integer "account_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2018_07_20_085819) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "websites", force: :cascade do |t|
+  create_table "websites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "url"
     t.string "content"
     t.datetime "created_at", null: false

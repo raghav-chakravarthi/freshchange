@@ -65,7 +65,7 @@ namespace :check_code do
           CaptureScreenshot.capture(url, "#{website.id}")
           # ImageOptimizer.new("public/assets/screenshots/#{website.id}.png", level: 1).optimize
           website.update_attributes!(old_time: Time.now)
-          website.content = doc.to_html
+          website.content = "yes" if doc.to_html
           website.save!
         else
           website.content = Nokogiri::HTML(open(url).read).to_html

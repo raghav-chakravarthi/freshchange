@@ -1,0 +1,308 @@
+
+---
+accounts:
+  columns:
+  - id
+  - owner_name
+  - email
+  - team_name
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Raghav Vc
+    - raghav.chakravarthi@freshworks.com
+    - Freshcaller
+    - '2018-07-16 05:52:31.640684'
+    - '2018-07-16 05:52:31.640684'
+
+---
+ar_internal_metadata:
+  columns:
+  - key
+  - value
+  - created_at
+  - updated_at
+  records: 
+  - - environment
+    - development
+    - '2018-07-12 13:41:43.139070'
+    - '2018-07-12 13:41:43.139070'
+
+---
+subscribers:
+  columns:
+  - id
+  - name
+  - email
+  - created_at
+  - updated_at
+  - password
+  - admin
+  - has_accrss
+  - created
+  - account_id
+  records: 
+  - - 1
+    - Raghav
+    - raghav.chakravarthi@freshworks.com
+    - '2018-07-12 13:44:43.660908'
+    - '2018-07-16 06:07:47.805872'
+    - 
+    - true
+    - true
+    - true
+    - 1
+  - - 2
+    - Ashwin
+    - ashwin.elangovan@freshworks.com
+    - '2018-07-12 13:44:43.663706'
+    - '2018-07-12 13:44:43.663706'
+    - 
+    - false
+    - false
+    - false
+    - 
+  - - 3
+    - Gauri
+    - gauri.singhal@freshworks.com
+    - '2018-07-12 13:44:43.666559'
+    - '2018-07-12 13:44:43.666559'
+    - 
+    - false
+    - false
+    - false
+    - 
+
+---
+users:
+  columns:
+  - id
+  - email
+  - encrypted_password
+  - reset_password_token
+  - reset_password_sent_at
+  - remember_created_at
+  - sign_in_count
+  - current_sign_in_at
+  - last_sign_in_at
+  - current_sign_in_ip
+  - last_sign_in_ip
+  - created_at
+  - updated_at
+  - password
+  - admin
+  - has_access
+  - created
+  - account_id
+  - name
+  records: 
+  - - 1
+    - raghav.chakravarthi@freshworks.com
+    - "$2a$11$vLDQeddKC3zaA1j8pE451OYX6Bo6cx.UIhA8t9eFbRg0lxtpcz9o2"
+    - '004059a72c234bab20a6e80fde2a937e74f383f315c3db08128bfff8706d9cd4'
+    - '2018-07-24 05:48:47.649657'
+    - 
+    - 31
+    - '2018-07-27 09:12:56.965711'
+    - '2018-07-26 09:59:06.833659'
+    - 127.0.0.1
+    - 127.0.0.1
+    - '2018-07-16 09:12:20.417987'
+    - '2018-07-27 09:12:56.967074'
+    - 
+    - true
+    - true
+    - true
+    - 1
+    - Raghav
+  - - 2
+    - jaga@jaga.com
+    - "$2a$11$TpZP6/KIENY.Nqu5LOmvrOVhHvZ472LdOWFJ1.XVZa2KbOwhZamVC"
+    - 
+    - 
+    - 
+    - 10
+    - '2018-07-24 06:43:28.766544'
+    - '2018-07-24 05:42:01.772069'
+    - 127.0.0.1
+    - 127.0.0.1
+    - '2018-07-16 11:55:20.845874'
+    - '2018-07-24 06:43:28.767610'
+    - 
+    - false
+    - true
+    - false
+    - 1
+    - jaga
+
+---
+websites:
+  columns:
+  - id
+  - url
+  - content
+  - created_at
+  - updated_at
+  - old_time
+  - new_time
+  - diff_time
+  - friendly_name
+  - user_id
+  - analytics
+  - scheduled
+  - priority
+  - was_updated
+  - report_one
+  - report_two
+  - report_three
+  records: 
+  - - 3
+    - www.rubygems.org
+    - "<!DOCTYPE html>\n<html lang=\"en-us\">\n  <head>\n<meta http-equiv=\"Content-Type\"
+      content=\"text/html; charset=UTF-8\">\n    <title>RubyGems.org | your community
+      gem host</title>\n    <meta charset=\"UTF-8\">\n    <meta content=\"width=device-width,
+      initial-scale=1, maximum-scale=1, user-scalable=0\" name=\"viewport\">\n    <meta
+      name=\"google-site-verification\" content=\"AuesbWQ9MCDMmC1lbDlw25RJzyqWOcDYpuaCjgPxEZY\">\n
+      \   <link rel=\"apple-touch-icon\" href=\"/apple-touch-icons/apple-touch-icon.png\">\n
+      \     <link rel=\"apple-touch-icon\" sizes=\"57x57\" href=\"/apple-touch-icons/apple-touch-icon-57x57.png\">\n
+      \     <link rel=\"apple-touch-icon\" sizes=\"72x72\" href=\"/apple-touch-icons/apple-touch-icon-72x72.png\">\n
+      \     <link rel=\"apple-touch-icon\" sizes=\"76x76\" href=\"/apple-touch-icons/apple-touch-icon-76x76.png\">\n
+      \     <link rel=\"apple-touch-icon\" sizes=\"114x114\" href=\"/apple-touch-icons/apple-touch-icon-114x114.png\">\n
+      \     <link rel=\"apple-touch-icon\" sizes=\"120x120\" href=\"/apple-touch-icons/apple-touch-icon-120x120.png\">\n
+      \     <link rel=\"apple-touch-icon\" sizes=\"144x144\" href=\"/apple-touch-icons/apple-touch-icon-144x144.png\">\n
+      \     <link rel=\"apple-touch-icon\" sizes=\"152x152\" href=\"/apple-touch-icons/apple-touch-icon-152x152.png\">\n
+      \     <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icons/apple-touch-icon-180x180.png\">\n
+      \   <link rel=\"mask-icon\" href=\"/rubygems_logo.svg\" color=\"#e9573f\">\n
+      \   <link rel=\"fluid-icon\" href=\"/fluid-icon.png\">\n    <link rel=\"search\"
+      type=\"application/opensearchdescription+xml\" title=\"RubyGems.org\" href=\"/opensearch.xml\">\n
+      \   <link rel=\"shortcut icon\" href=\"/favicon.ico\" type=\"image/x-icon\">\n\n
+      \   <link rel=\"stylesheet\" media=\"screen\" href=\"/assets/application-ce19b2fb4f6bf0f1bce3a1571653e80bc047681dbcf66ddaebdbb5b8ab5ca91a.css\">\n
+      \   <link href=\"https://fonts.gstatic.com\" rel=\"preconnect\" crossorigin>\n
+      \   <link href=\"https://fonts.googleapis.com/css?family=Roboto:100&amp;subset=greek,latin,cyrillic,latin-ext\"
+      rel=\"stylesheet\" type=\"text/css\">\n    \n<link rel=\"alternate\" type=\"application/atom+xml\"
+      href=\"https://feeds.feedburner.com/gemcutter-latest\" title=\"RubyGems.org
+      | Latest Gems\">\n\n    <meta name=\"csrf-param\" content=\"authenticity_token\">\n<meta
+      name=\"csrf-token\" content=\"yEOd8NBPMW+IVo2mEZJjvoDQT+jodGyWc1KOl5ukGP0UFQ24POYk7oi1/MU0rYY/q48XRRnp/X7p02Fm/NIo6A==\">\n
+      \   \n  </head>\n\n  <body class=\"body--index\">\n    <header class=\"header
+      \">\n      <div class=\"l-wrap--header\">\n        <a title=\"RubyGems\" class=\"header__logo-wrap\"
+      href=\"/\">\n          <span class=\"header__logo\" data-icon=\"⬡\">⬢</span>\n
+      \         <span class=\"t-hidden\">RubyGems</span>\n</a>        <a class=\"header__club-sandwich\"
+      href=\"#\">\n          <span class=\"t-hidden\">Navigation menu</span>\n        </a>\n\n
+      \       <div class=\"header__nav-links-wrap\">\n          <form class=\"header__search-wrap--home\"
+      action=\"/search\" accept-charset=\"UTF-8\" method=\"get\">\n<input name=\"utf8\"
+      type=\"hidden\" value=\"✓\">\n            <input type=\"search\" name=\"query\"
+      id=\"query\" placeholder=\"Search Gems…\" class=\"header__search\">\n            <label
+      for=\"query\">\n              <span class=\"t-hidden\">Search Gems…</span>\n</label>
+      \           <input type=\"submit\" value=\"⌕\" id=\"search_submit\" class=\"header__search__icon\"
+      data-disable-with=\"⌕\">\n</form>\n          <nav class=\"header__nav-links\">\n\n
+      \           <a class=\"header__nav-link \" href=\"https://rubygems.org/news\">News</a>\n\n
+      \             <a class=\"header__nav-link\" href=\"/gems\">Gems</a>\n\n            <a
+      class=\"header__nav-link\" href=\"http://guides.rubygems.org\">Guides</a>\n
+      \           <a class=\"header__nav-link\" href=\"http://guides.rubygems.org/contributing/\">Contribute</a>\n\n
+      \             <a class=\"header__nav-link \" href=\"/sign_in\">Sign in</a>\n
+      \               <a class=\"header__nav-link \" href=\"/sign_up\">Sign up</a>\n
+      \         </nav>\n        </div>\n      </div>\n    </header>\n\n\n    \n\n\n
+      \   <main class=\"\">\n        <div class=\"home__image-wrap\">\n  <div class=\"home__image\"></div>\n</div>\n<h1
+      class=\"home__heading\">Find, install, and publish RubyGems.</h1>\n<div class=\"home__search-wrap\">\n
+      \ <form action=\"/search\" accept-charset=\"UTF-8\" method=\"get\">\n<input
+      name=\"utf8\" type=\"hidden\" value=\"✓\">\n    <input type=\"search\" name=\"query\"
+      id=\"home_query\" placeholder=\"Search Gems…\" autofocus=\"autofocus\" class=\"home__search\">\n
+      \   <label for=\"home_query\">\n      <span class=\"t-hidden\">Search Gems…</span>\n
+      \     <center>\n        <a class=\"home__advanced__search t-link--has-arrow\"
+      href=\"/search/advanced\">Advanced Search</a>\n      </center>\n</label>    <input
+      type=\"submit\" value=\"⌕\" class=\"home__search__icon\" data-disable-with=\"⌕\">\n</form>\n</div>\n<div
+      class=\"home__cta-wrap\">\n    <h2 class=\"home__downloads\">\n      </h2>\n<p>24,379,398,909</p>\n
+      \     <span class=\"home__downloads__desc\">downloads &amp; counting</span>\n
+      \   \n  <a class=\"home__join \" data-icon=\"&gt;\" href=\"https://rubygems.org/pages/download\">Install
+      RubyGems</a>\n</div>\n<div class=\"home__links\">\n  <a class=\"home__link\"
+      data-icon=\"⌁\" href=\"https://status.rubygems.org\"><span class=\"translation_missing\"
+      title=\"translation missing: en.home.index.footer.status\">Status</span></a>\n
+      \ <a class=\"home__link\" data-icon=\"⧖\" href=\"http://uptime.rubygems.org\"><span
+      class=\"translation_missing\" title=\"translation missing: en.home.index.footer.uptime\">Uptime</span></a>\n</div>\n\n
+      \   </main>\n\n    <footer class=\"footer\">\n      <div class=\"l-wrap--footer\">\n
+      \       <div class=\"l-overflow\">\n          <div class=\"nav--v l-col--r--pad\">\n
+      \           <a class=\"nav--v__link--footer\" href=\"https://status.rubygems.org\">Status</a>\n
+      \           <a class=\"nav--v__link--footer\" href=\"http://uptime.rubygems.org\">Uptime</a>\n
+      \           <a class=\"nav--v__link--footer\" href=\"https://github.com/rubygems/rubygems.org\">Code</a>\n
+      \           <a class=\"nav--v__link--footer\" href=\"/pages/data\">Data</a>\n
+      \           <a class=\"nav--v__link--footer\" href=\"https://groups.google.com/group/rubygems-org\">Discuss</a>\n
+      \           <a class=\"nav--v__link--footer\" href=\"/stats\">Stats</a>\n            <a
+      class=\"nav--v__link--footer\" href=\"http://blog.rubygems.org\">Blog</a>\n
+      \             <a class=\"nav--v__link--footer\" href=\"/pages/about\">About</a>\n
+      \           <a class=\"nav--v__link--footer\" href=\"http://help.rubygems.org\">Help</a>\n
+      \           <a class=\"nav--v__link--footer\" href=\"http://guides.rubygems.org/rubygems-org-api\">API</a>\n
+      \             <a class=\"nav--v__link--footer\" href=\"/pages/security\">Security</a>\n
+      \         </div>\n          <div class=\"l-colspan--l colspan--l--has-border\">\n
+      \           <div class=\"footer__about\">\n              <p>\n                RubyGems.org
+      is the Ruby community’s gem hosting service. Instantly <a href=\"http://guides.rubygems.org/publishing/\">publish
+      your gems</a> and then <a href=\"http://guides.rubygems.org/command-reference/#gem-install\">install
+      them</a>. Use <a href=\"http://guides.rubygems.org/rubygems-org-api/\">the API</a>
+      to find out more about <a href=\"/gems\">available gems</a>. <a href=\"http://guides.rubygems.org/contributing/\">Become
+      a contributor</a> and improve the site yourself.\n              </p>\n              <p>\n
+      \                RubyGems.org is made possible through a partnership with the
+      greater Ruby community.\n                <a href=\"https://www.fastly.com/\">Fastly</a>
+      provides bandwidth and CDN support,\n                <a href=\"http://www.rubycentral.org/\">Ruby
+      Central</a> covers infrastructure costs, and\n                <a href=\"https://rubytogether.org/?source=rubygems\">Ruby
+      Together</a> funds ongoing development and ops work.\n                <a href=\"/pages/sponsors\">Learn
+      more about our sponsors and how they work together</a>.\n              </p>\n
+      \             <p>\n                We need your help to fund the developer time
+      that keeps RubyGems.org running smoothly for everyone.\n                <a href=\"https://rubytogether.org/join?source=rubygems\">Join
+      Ruby Together today</a>.\n              </p>\n            </div>\n          </div>\n
+      \       </div>\n      </div>\n      <div class=\"footer__sponsors-wrap\">\n
+      \       <div class=\"footer__sponsors\">\n          <a class=\"footer__sponsor\"
+      href=\"http://rubycentral.org/\" target=\"_blank\">\n            Supported by\n
+      \           <span class=\"t-hidden\">Ruby Central</span>\n          </a>\n          <a
+      class=\"footer__sponsor\" href=\"https://rubytogether.org/\" target=\"_blank\">\n
+      \           Supported by\n            <span class=\"t-hidden\">Ruby Together</span>\n
+      \         </a>\n          <a class=\"footer__sponsor\" href=\"https://dockyard.com/ruby-on-rails-consulting\"
+      target=\"_blank\">\n            Designed by\n            <span class=\"t-hidden\">DockYard</span>\n
+      \         </a>\n          <a class=\"footer__sponsor\" href=\"https://dnsimple.link/resolving-rubygems\"
+      target=\"_blank\">\n            Resolved with\n            <span class=\"t-hidden\">DNSimple</span>\n
+      \         </a>\n          <a class=\"footer__sponsor\" href=\"https://newrelic.com/\"
+      target=\"_blank\">\n            Optimized by\n            <span class=\"t-hidden\">New
+      Relic</span>\n          </a>\n          <a class=\"footer__sponsor\" href=\"http://get.gaug.es/\"
+      target=\"_blank\">\n            Tracking by\n            <span class=\"t-hidden\">Gauges</span>\n
+      \         </a>\n          <a class=\"footer__sponsor\" href=\"https://www.runscope.com/\"
+      target=\"_blank\">\n            Monitored by\n            <span class=\"t-hidden\">Runscope</span>\n
+      \         </a>\n          <a class=\"footer__sponsor\" href=\"https://www.fastly.com/\"
+      target=\"_blank\">\n            Gems served by\n            <span class=\"t-hidden\">Fastly</span>\n
+      \         </a>\n          <a class=\"footer__sponsor\" href=\"https://www.datadoghq.com/\"
+      target=\"_blank\">\n            Monitored by\n            <span class=\"t-hidden\">Datadog</span>\n
+      \         </a>\n          <a class=\"footer__sponsor\" href=\"https://travis-ci.org/\"
+      target=\"_blank\">\n            Tested by\n            <span class=\"t-hidden\">Travis
+      CI</span>\n          </a>\n        </div>\n      </div>\n      <div class=\"footer__language_selector\">\n
+      \         <div class=\"footer__language\">\n            <a class=\"nav--v__link--footer\"
+      href=\"/?locale=en\">English</a>\n          </div>\n          <div class=\"footer__language\">\n
+      \           <a class=\"nav--v__link--footer\" href=\"/?locale=nl\">Nederlands</a>\n
+      \         </div>\n          <div class=\"footer__language\">\n            <a
+      class=\"nav--v__link--footer\" href=\"/?locale=zh-CN\">简体中文</a>\n          </div>\n
+      \         <div class=\"footer__language\">\n            <a class=\"nav--v__link--footer\"
+      href=\"/?locale=zh-TW\">正體中文</a>\n          </div>\n          <div class=\"footer__language\">\n
+      \           <a class=\"nav--v__link--footer\" href=\"/?locale=pt-BR\">Português
+      do Brasil</a>\n          </div>\n          <div class=\"footer__language\">\n
+      \           <a class=\"nav--v__link--footer\" href=\"/?locale=fr\">Français</a>\n
+      \         </div>\n          <div class=\"footer__language\">\n            <a
+      class=\"nav--v__link--footer\" href=\"/?locale=es\">Español</a>\n          </div>\n
+      \         <div class=\"footer__language\">\n            <a class=\"nav--v__link--footer\"
+      href=\"/?locale=de\">Deutsch</a>\n          </div>\n      </div>\n    </footer>\n\n
+      \   <script src=\"/assets/application-c55d14bd25b28532f8759f17ab6cad085159def1f0d59ef9b64ac67c5fdf7173.js\"></script>\n
+      \   \n    <script type=\"text/javascript\" async defer id=\"gauges-tracker\"
+      data-site-id=\"4eab0ac8613f5d1583000005\" src=\"//secure.gaug.es/track.js\"></script>\n
+      \   <script type=\"text/javascript\" defer src=\"https://www.fastly-insights.com/insights.js?k=3e63c3cd-fc37-4b19-80b9-65ce64af060a\"></script>\n
+      \ </body>\n</html>\n"
+    - '2018-07-26 10:00:26.123021'
+    - '2018-07-27 09:29:03.586996'
+    - '2018-07-27 09:28:27.950076'
+    - '2018-07-27 09:28:14.004680'
+    - '2018-07-27 09:28:17.696471'
+    - gems
+    - 1
+    - '["application-performance", "marketing-automation", "conversion-optimization",
+      "audience-measurement", "visitor-count-tracking", "data-management-platform"]'
+    - 
+    - true
+    - true
+    - '2018-07-27 09:27:03.125531'
+    - '2018-07-27 09:28:02.919967'
+    - '2018-07-27 09:29:03.567555'
