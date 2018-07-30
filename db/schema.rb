@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_20_085819) do
+ActiveRecord::Schema.define(version: 2018_07_27_181723) do
 
   create_table "accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "owner_name"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2018_07_20_085819) do
     t.datetime "diff_time"
     t.string "friendly_name"
     t.integer "user_id"
-    t.string "analytics"
+    t.text "analytics", limit: 4294967295
     t.integer "scheduled"
     t.boolean "priority"
     t.boolean "was_updated"
