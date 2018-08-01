@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	def create
-		user = User.new(name: params[:name], email: params[:email], account_id: params[:account_id], admin: false, has_access: true, password: 'password', account_id: params[:account_id])
+		user = User.new(name: params[:name], email: params[:email], account_id: params[:account_id], admin: false, has_access: true, password: 'password')
 		if user.save!
 			flash[:success] = 'The user has been added to your account.'
 			redirect_to users_path
