@@ -3,6 +3,7 @@
 		"hello": "Hello world",
 		"language": "English",
 		"welcome": "Welcome to my application",
-		"message": "This is my first project as a developer here"
+		"message": "This is my first project as a developer here",
+		"new": "This is a new message pushed"
 	}
 }
