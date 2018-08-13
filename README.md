@@ -9,7 +9,7 @@ There can be multiple accounts and each accounts can further have more users ass
 ## Requirements
 
 * A Laptop with Ubuntu / Linux / iOS (as cron jobs only work on Linux / iOS) with Internet connection
-* Install Ruby 2.6.0
+* Install Ruby 2.3.7
 * Install Rails 5.2.0
 
 ## Working
