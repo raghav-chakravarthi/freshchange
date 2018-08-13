@@ -1,0 +1,9 @@
+{
+	"en": {
+		"hello": "Hallo",
+		"language": "English",
+		"welcome": "Welcome to my application",
+		"message": "This is my first project as a developer here",
+		"new": "This is a new message pushed"
+	}
+}
