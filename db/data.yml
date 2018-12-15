@@ -99,7 +99,7 @@ users:
   records: 
   - - 1
     - raghav.chakravarthi@freshworks.com
-    - "$2a$11$vLDQeddKC3zaA1j8pE451OYX6Bo6cx.UIhA8t9eFbRg0lxtpcz9o2"
+    - "encrypted_password"
     - '004059a72c234bab20a6e80fde2a937e74f383f315c3db08128bfff8706d9cd4'
     - '2018-07-24 05:48:47.649657'
     - 
